@@ -23,5 +23,5 @@ In this repository, I try to implement BigVGAN (specifically BigVGAN-base model)
 - We use the sampling rate of 22,050 and linear spectrogram for input speech.
 
 ## Low-pass filter
-- [] pytorch extension ver??? (https://github.com/NVlabs/stylegan3/blob/b1a62b91b18824cf58b533f75f660b073799595d/training/networks_stylegan3.py)
-- [] torchaudio에서 0.9 ver부터 Kaiser window와 rolloff (cutoff frequency) 제공하여 torchaudio를 이용해서 low-pass filter 구현 완료
+- [ ] pytorch extension ver??? (https://github.com/NVlabs/stylegan3/blob/b1a62b91b18824cf58b533f75f660b073799595d/training/networks_stylegan3.py)
+- [X] torchaudio에서 0.9 ver부터 Kaiser window와 rolloff (cutoff frequency) 제공하여 torchaudio를 이용해서 low-pass filter 구현 완료
