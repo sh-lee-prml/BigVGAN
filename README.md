@@ -24,7 +24,7 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 
 ## BigVGAN vs HiFi-GAN 
 
-1. Leaky Relu --> x + 1/a*sin^2(ax)
+1. Leaky Relu --> x + (1/a)*sin^2(ax)
 
 2. MRF --> AMP block 
 - Up --> Low-pass filter --> Snake1D --> Down --> Low-pass filter
