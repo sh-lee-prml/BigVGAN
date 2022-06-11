@@ -40,3 +40,7 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 ## Low-pass filter
 - [ ] pytorch extension ver??? (https://github.com/NVlabs/stylegan3/blob/b1a62b91b18824cf58b533f75f660b073799595d/training/networks_stylegan3.py)
 - [X] torchaudio ver (0.9 >=) use Kaiser window and rolloff (cutoff frequency)
+
+## Referenece
+VITS: https://github.com/jaywalnut310/vits
+UnivNET: https://github.com/mindslab-ai/univnet
