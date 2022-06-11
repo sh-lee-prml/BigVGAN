@@ -41,6 +41,14 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 - [ ] pytorch extension ver with scipy??? [StarGAN3](https://github.com/NVlabs/stylegan3/blob/b1a62b91b18824cf58b533f75f660b073799595d/training/networks_stylegan3.py)
 - [X] torchaudio ver (0.9 >=) can use Kaiser window and rolloff (cutoff frequency)
 
+```sh
+# beta 
+f_h = 0.6/2
+A = 2.285*(12/2 - 1)*math.pi*4*f_h+7.95
+beta = 0.1102*(A-8.7)
+4.663800127934911
+```
+
 ## Referenece
 - VITS: https://github.com/jaywalnut310/vits
 - UnivNET: https://github.com/mindslab-ai/univnet
