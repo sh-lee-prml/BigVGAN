@@ -42,5 +42,5 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 - [X] torchaudio ver (0.9 >=) use Kaiser window and rolloff (cutoff frequency)
 
 ## Referenece
-VITS: https://github.com/jaywalnut310/vits
-UnivNET: https://github.com/mindslab-ai/univnet
+- VITS: https://github.com/jaywalnut310/vits
+- UnivNET: https://github.com/mindslab-ai/univnet
