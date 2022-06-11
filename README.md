@@ -12,7 +12,7 @@ In this repository, I try to implement BigVGAN (specifically BigVGAN-base model)
     
 ```
 ## Training Exmaple
-```sh
+```
 # VCTK
 python preprocess.py
 
