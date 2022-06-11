@@ -10,9 +10,9 @@ In this repository, I try to implement BigVGAN (specifically BigVGAN-base model)
 0. Download datasets
     1. Download the VCTK dataset
     
-```
+
 ## Training Exmaple
-```
+```sh
 # VCTK
 python preprocess.py
 
