@@ -1,8 +1,8 @@
-# BigVGAN [[Paper]](https://arxiv.org/pdf/2206.04658.pdf) [[Demo]](https://bigvgan-demo.github.io/)
+# BigVGAN
 ![image](https://user-images.githubusercontent.com/56749640/173193781-0ee419a5-df66-4b94-8585-546167ecceb5.png)
 
 
-In this repository, i try to implement BigVGAN (specifically BigVGAN-base model).
+In this repository, i try to implement BigVGAN (specifically BigVGAN-base model) [[Paper]](https://arxiv.org/pdf/2206.04658.pdf) [[Demo]](https://bigvgan-demo.github.io/).
 
 ## 2022-06-12
 
