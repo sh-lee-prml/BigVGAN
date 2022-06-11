@@ -43,8 +43,10 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 
 ```sh
 # beta 
-f_h = 0.6/2
-A = 2.285*(12/2 - 1)*math.pi*4*f_h+7.95
+m = 2
+n = 6
+f_h = 0.6/m
+A = 2.285*((m*n)/2 - 1)*math.pi*4*f_h+7.95
 beta = 0.1102*(A-8.7)
 4.663800127934911
 ```
