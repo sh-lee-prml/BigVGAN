@@ -30,7 +30,7 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 - Up --> Low-pass filter --> Snake1D --> Down --> Low-pass filter
 - I need to review this module. I use torchaudio to implement up/downsampling with low-pass filter. I used the rolloff value of 0.25 in the T.resample but I'm not sure this value is equal to sr/(2*m) where m is 2.
 - torchaudio > 0.9 is needed to use the rolloff parameter for anti-aliasing
-- There are some issues of STFT function in pytorch of 3.9 (need to change the waveform to float before stft when using mixed precision) 
+- There are some issues of STFT function in pytorch of 3.9 (When using mixed precision, need to change the waveform to float before stft ) 
 
 3. MSD --> MRD (Univnet discriminator) [UnivNet unofficial github](https://github.com/mindslab-ai/univnet/blob/9bb2b54838bb6d7ce767131cc7b8b61198bc7558/model/mrd.py#L49)
 
