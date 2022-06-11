@@ -4,6 +4,21 @@
 
 In this repository, I try to implement BigVGAN (specifically BigVGAN-base model) [[Paper]](https://arxiv.org/pdf/2206.04658.pdf) [[Demo]](https://bigvgan-demo.github.io/).
 
+## Pre-requisites
+0. Pytorch >=3.9 and torchaudio >= 0.9
+
+0. Download datasets
+    1. Download the VCTK dataset
+    
+```
+## Training Exmaple
+```sh
+# VCTK
+python preprocess.py
+
+python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
+```
+
 ## 2022-06-12
 - Current ver has some redundant parts in some module (e.g., data_utils have some TTS module. Ignore it plz)
 
@@ -15,7 +30,7 @@ In this repository, I try to implement BigVGAN (specifically BigVGAN-base model)
 - Up --> Low-pass filter --> Snake1D --> Down --> Low-pass filter
 - I need to review this module. I use torchaudio to implement up/downsampling with low-pass filter. I used the rolloff value of 0.25 in the T.resample but I'm not sure this value is equal to sr/(2*m) where m is 2.
 - torchaudio > 0.9 is needed to use the rolloff parameter for anti-aliasing
-- There are some issues of STFT function in pytorch of 1.9 (need to change the waveform to float before stft 
+- There are some issues of STFT function in pytorch of 3.9 (need to change the waveform to float before stft 
 
 3. MSD --> MRD (Univnet discriminator) [UnivNet unofficial github](https://github.com/mindslab-ai/univnet/blob/9bb2b54838bb6d7ce767131cc7b8b61198bc7558/model/mrd.py#L49)
 
