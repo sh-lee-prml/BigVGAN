@@ -38,7 +38,7 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 - We use the sampling rate of 22,050 and linear spectrogram for input speech.
 
 ## Low-pass filter
-- [ ] pytorch extension ver??? (https://github.com/NVlabs/stylegan3/blob/b1a62b91b18824cf58b533f75f660b073799595d/training/networks_stylegan3.py)
+- [ ] pytorch extension ver with scipy??? [StarGAN3](https://github.com/NVlabs/stylegan3/blob/b1a62b91b18824cf58b533f75f660b073799595d/training/networks_stylegan3.py) but I'm not familiar to this...
 - [X] torchaudio ver (0.9 >=) use Kaiser window and rolloff (cutoff frequency)
 
 ## Referenece
