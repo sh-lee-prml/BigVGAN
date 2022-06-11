@@ -5,7 +5,7 @@
 In this repository, I try to implement BigVGAN (specifically BigVGAN-base model) [[Paper]](https://arxiv.org/pdf/2206.04658.pdf) [[Demo]](https://bigvgan-demo.github.io/).
 
 ## 2022-06-12
-
+- Current ver has some redundant parts in some module (e.g., data_utils have some TTS module. Ignore it plz)
 
 ## BigVGAN vs HiFi-GAN 
 
