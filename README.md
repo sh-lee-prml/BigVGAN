@@ -1,4 +1,4 @@
-# BigVGAN
+# BigVGAN: A Universal Neural Vocoder with Large-Scale Training
 ![image](https://user-images.githubusercontent.com/56749640/173193781-0ee419a5-df66-4b94-8585-546167ecceb5.png)
 
 
