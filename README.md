@@ -56,6 +56,9 @@ beta = 0.1102*(A-8.7)
 4.663800127934911
 ```
 
+## Results (~ing)
+![image](https://user-images.githubusercontent.com/56749640/173220758-db6c20e6-9043-47a2-ad4f-b221a4748fea.png)
+
 ## Reference
 - VITS: https://github.com/jaywalnut310/vits
 - UnivNET: https://github.com/mindslab-ai/univnet
