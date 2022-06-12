@@ -59,6 +59,13 @@ beta = 0.1102*(A-8.7)
 ## Results (~ing)
 ![image](https://user-images.githubusercontent.com/56749640/173220758-db6c20e6-9043-47a2-ad4f-b221a4748fea.png)
 
+<audio controls>
+    <source src='./audio/target1_30k_step.wav'>
+</audio>
+<audio controls>
+    <source src='./audio/generated1_30k_step.wav'>
+</audio>
+
  I train the BigVGAN-base model with batch size of 64 (using two A100 GPU) and an initial learning rate of 2 × 10−4
 
 (In original paper, BigVGAN (large model) use batch size of 32 and an initial learning rate of 1 × 10−4 to avoid an early training collapse)
