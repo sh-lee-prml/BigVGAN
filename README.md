@@ -65,7 +65,7 @@ beta = 0.1102*(A-8.7)
 
 (In original paper, BigVGAN (large model) uses batch size of 32 and an initial learning rate of 1 × 10−4 to avoid an early training collapse)
 
-For the BigVGAN-base model, I have not experienced an early training collapse yet with batch size of 64 and an initial learning rate of 2 × 10−4
+For the BigVGAN-base model, I have not yet experienced an early training collapse with batch size of 64 and an initial learning rate of 2 × 10−4
 
 ## Automatic Mixed Precision (AMP)
 
