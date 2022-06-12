@@ -61,11 +61,13 @@ beta = 0.1102*(A-8.7)
 
 [Audio](https://github.com/sh-lee-prml/BigVGAN/tree/main/audio)
 
- I train the BigVGAN-base model with batch size of 64 (using two A100 GPU) and an initial learning rate of 2 × 10−4
+ I train the BigVGAN-base model with batch size of 64 (using two A100 GPU) and an initial learning rate of 2 × 10<sup>−4</sup>
 
-(In original paper, BigVGAN (large model) uses batch size of 32 and an initial learning rate of 1 × 10−4 to avoid an early training collapse)
+(In original paper, BigVGAN (large model) uses batch size of 32 and an initial learning rate of 1 × 10<sup>−4</sup>
+ to avoid an early training collapse)
 
-For the BigVGAN-base model, I have not yet experienced an early training collapse with batch size of 64 and an initial learning rate of 2 × 10−4
+For the BigVGAN-base model, I have not yet experienced an early training collapse with batch size of 64 and an initial learning rate of 2 × 10<sup>−4</sup>
+
 
 ## Automatic Mixed Precision (AMP)
 
