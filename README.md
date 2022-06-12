@@ -63,7 +63,7 @@ beta = 0.1102*(A-8.7)
 
  I train the BigVGAN-base model with batch size of 64 (using two A100 GPU) and an initial learning rate of 2 × 10−4
 
-(In original paper, BigVGAN (large model) use batch size of 32 and an initial learning rate of 1 × 10−4 to avoid an early training collapse)
+(In original paper, BigVGAN (large model) uses batch size of 32 and an initial learning rate of 1 × 10−4 to avoid an early training collapse)
 
 For the BigVGAN-base model, I have not experienced an early training collapse yet with batch size of 64 and an initial learning rate of 2 × 10−4
 
