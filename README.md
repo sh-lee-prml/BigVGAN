@@ -71,7 +71,7 @@ For the BigVGAN-base model, I have not experienced an early training collapse ye
 
 The original paper may not use the AMP during training but this implementation includes AMP. Hence, the results may be different in original setting.
 
-For training with AMP, I change the dtype of representation to float for torchaudio resampling (Need to be changed for precised transformation).
+For training with AMP, I change the dtype of representation to float for torchaudio resampling (Need to be changed for precise transformation).
 
 ## Reference
 - VITS: https://github.com/jaywalnut310/vits
