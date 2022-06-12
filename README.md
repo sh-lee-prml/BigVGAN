@@ -67,6 +67,12 @@ beta = 0.1102*(A-8.7)
 
 For the BigVGAN-base model, I have not experienced an early training collapse yet with batch size of 64 and an initial learning rate of 2 × 10−4
 
+## Automatic Mixed Precision (AMP)
+
+The original paper may not use the AMP during training but this implementation includes AMP. Hence, the results may be different in original setting.
+
+For training with AMP, I change the dtype of representation to float for torchaudio resampling (Need to be changed for precised transformation).
+
 ## Reference
 - VITS: https://github.com/jaywalnut310/vits
 - UnivNET: https://github.com/mindslab-ai/univnet
