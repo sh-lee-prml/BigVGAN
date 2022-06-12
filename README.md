@@ -41,6 +41,10 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 - [ ] pytorch extension ver with scipy??? [StarGAN3](https://github.com/NVlabs/stylegan3/blob/b1a62b91b18824cf58b533f75f660b073799595d/training/networks_stylegan3.py)
 - [X] torchaudio ver (0.9 >=) can use Kaiser window and rolloff (cutoff frequency)
 
+[Torchaudio tutorial](https://tutorials.pytorch.kr/beginner/audio_resampling_tutorial.html)
+torchaudio.transforms is much faster than torchaudio.functional when resampling multiple waveforms using the same paramters. 
+
+
 ```sh
 # beta 
 m = 2
