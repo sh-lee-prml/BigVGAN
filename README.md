@@ -42,6 +42,7 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 - [X] torchaudio ver (0.9 >=) can use Kaiser window and rolloff (cutoff frequency)
 
 [Torchaudio tutorial](https://tutorials.pytorch.kr/beginner/audio_resampling_tutorial.html)
+
 torchaudio.transforms is much faster than torchaudio.functional when resampling multiple waveforms using the same paramters. 
 
 
