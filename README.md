@@ -19,6 +19,12 @@ python preprocess.py
 python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 ```
 
+## 2022-06-13
+- VITS with BigVGAN
+```sh
+python train_vits_with_bigvgan.py -c configs/vctk_bigvgan_vits.json  -m vits_with_bigvgan
+```
+
 ## 2022-06-12
 - Current ver has some redundant parts in some modules (e.g., data_utils have some TTS module. Ignore it plz)
 
