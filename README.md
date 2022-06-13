@@ -58,6 +58,7 @@ beta = 0.1102*(A-8.7)
 
 ## Results (~ing)
 ![image](https://user-images.githubusercontent.com/56749640/173265977-f77d6e54-f723-4547-a29c-b669b43f47cb.png)
+
 [Audio](https://github.com/sh-lee-prml/BigVGAN/tree/main/audio)
 
  I train the BigVGAN-base model with batch size of 64 (using two A100 GPU) and an initial learning rate of 2 × 10<sup>−4</sup>
