@@ -17,7 +17,7 @@ from data_utils_vocoder import (
     TextAudioCollate,
     DistributedBucketSampler
 )
-from models_bigvgan import (
+from model_vits_with_bigvgan import (
     SynthesizerTrn,
     MultiPeriodDiscriminator,
 )
