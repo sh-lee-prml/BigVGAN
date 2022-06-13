@@ -22,6 +22,9 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 ## 2022-06-13
 - VITS with BigVGAN
 ```sh
+# Monotonic alignment search
+Build MAS [https://github.com/jaywalnut310/vits](https://github.com/jaywalnut310/vits)
+
 python train_vits_with_bigvgan.py -c configs/vctk_bigvgan_vits.json  -m vits_with_bigvgan
 ```
 
