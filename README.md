@@ -85,5 +85,6 @@ The original paper may not use the AMP during training but this implementation i
 For training with AMP, I change the dtype of representation to float for torchaudio resampling (Need to be changed for precise transformation).
 
 ## Reference
+- BigVGAN: https://arxiv.org/abs/2206.04658
 - VITS: https://github.com/jaywalnut310/vits
 - UnivNET: https://github.com/mindslab-ai/univnet
