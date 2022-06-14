@@ -65,6 +65,26 @@ beta = 0.1102*(A-8.7)
 4.663800127934911
 ```
 
+- (2022-06-14) Roll-off (https://pytorch.org/audio/main/_modules/torchaudio/functional/functional.html)
+```sh
+# In torchaudio.functional (https://pytorch.org/audio/main/_modules/torchaudio/functional/functional.html)
+ base_freq = min(orig_freq, new_freq)
+    # This will perform antialiasing filtering by removing the highest frequencies.
+    # At first I thought I only needed this when downsampling, but when upsampling
+    # you will get edge artifacts without this, as the edge is equivalent to zero padding,
+    # which will add high freq artifacts.
+    base_freq *= rolloff
+ width = math.ceil(lowpass_filter_width * orig_freq / base_freq)
+
+```
+```
+# When upsampling,  width = math.ceil(lowpass_filter_width / rolloff)
+# When downsampling,  width = math.ceil(2*lowpass_filter_width / rolloff)
+
+Hence, I think that using rolloff=0.25 may restrict the bandwith under nyquist freq (fs/2).
+
+Somebody... check it again Please 😢
+```
 ## Results (~ing)
 ![image](https://user-images.githubusercontent.com/56749640/173265977-f77d6e54-f723-4547-a29c-b669b43f47cb.png)
 
