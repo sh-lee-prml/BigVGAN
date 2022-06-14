@@ -69,7 +69,7 @@ beta = 0.1102*(A-8.7)
     # At first I thought I only needed this when downsampling, but when upsampling
     # you will get edge artifacts without this, as the edge is equivalent to zero padding,
     # which will add high freq artifacts.
-    base_freq *= rolloff
+ base_freq *= rolloff
  width = math.ceil(lowpass_filter_width * orig_freq / base_freq)
 
 ```
