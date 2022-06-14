@@ -37,9 +37,6 @@ python train_vits_with_bigvgan.py -c configs/vctk_bigvgan_vits.json  -m vits_wit
 
 2. MRF --> AMP block 
 - Up --> Low-pass filter --> Snake1D --> Down --> Low-pass filter
-- I need to review this module. I used torchaudio to implement up/downsampling with low-pass filter. I used the rolloff value of 0.25 in the T.resample but I'm not sure this value is equal to sr/(2*m) where m is 2.
-- torchaudio > 0.9 is needed to use the rolloff parameter for anti-aliasing in T.resample
-- There are some issues of STFT function in pytorch of 3.9 (When using mixed precision, waveform need to be changed to float before stft ) 
 
 3. MSD --> MRD (Univnet discriminator) [UnivNet unofficial github](https://github.com/mindslab-ai/univnet/blob/9bb2b54838bb6d7ce767131cc7b8b61198bc7558/model/mrd.py#L49)
 
@@ -53,7 +50,6 @@ python train_vits_with_bigvgan.py -c configs/vctk_bigvgan_vits.json  -m vits_wit
 [Torchaudio tutorial](https://tutorials.pytorch.kr/beginner/audio_resampling_tutorial.html)
 
 torchaudio.transforms is much faster than torchaudio.functional when resampling multiple waveforms using the same paramters. 
-
 
 ```sh
 # beta 
@@ -85,6 +81,12 @@ Hence, I think that using rolloff=0.25 may restrict the bandwith under nyquist f
 
 Somebody... check it again Please 😢
 ```
+- (2022-06-12) I need to review this module. I used torchaudio to implement up/downsampling with low-pass filter. I used the rolloff value of 0.25 in the T.resample but I'm not sure this value is equal to sr/(2*m) where m is 2.
+
+ torchaudio > 0.9 is needed to use the rolloff parameter for anti-aliasing in T.resample
+ 
+ There are some issues of STFT function in pytorch of 3.9 (When using mixed precision, waveform need to be changed to float before stft ) 
+ 
 ## Results (~ing)
 ![image](https://user-images.githubusercontent.com/56749640/173265977-f77d6e54-f723-4547-a29c-b669b43f47cb.png)
 
