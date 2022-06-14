@@ -87,7 +87,7 @@ Somebody... check it again Please 😢
  
  There are some issues of STFT function in pytorch of 3.9 (When using mixed precision, waveform need to be changed to float before stft ) 
  
-## Results (~ing)
+## Results
 ![image](https://user-images.githubusercontent.com/56749640/173265977-f77d6e54-f723-4547-a29c-b669b43f47cb.png)
 
 [Audio](https://github.com/sh-lee-prml/BigVGAN/tree/main/audio)
