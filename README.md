@@ -75,7 +75,9 @@ beta = 0.1102*(A-8.7)
  for i in range(new_freq):
      t = (-i / new_freq + idx / orig_freq) * base_freq
      t = t.clamp_(-lowpass_filter_width, lowpass_filter_width)
-...
+.
+.
+.
 
 Hence, I think that using rolloff=0.25 may restrict the bandwith under nyquist freq (fs/2).
 
