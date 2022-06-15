@@ -71,11 +71,11 @@ beta = 0.1102*(A-8.7)
     # which will add high freq artifacts.
  base_freq *= rolloff
  width = math.ceil(lowpass_filter_width * orig_freq / base_freq)
-
-```
-```
-# When upsampling,  width = math.ceil(lowpass_filter_width / rolloff)
-# When downsampling,  width = math.ceil(2*lowpass_filter_width / rolloff)
+ idx = torch.arange(-width, width + orig_freq, device=device, dtype=idx_dtype)
+ for i in range(new_freq):
+     t = (-i / new_freq + idx / orig_freq) * base_freq
+     t = t.clamp_(-lowpass_filter_width, lowpass_filter_width)
+...
 
 Hence, I think that using rolloff=0.25 may restrict the bandwith under nyquist freq (fs/2).
 
