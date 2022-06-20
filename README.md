@@ -9,13 +9,13 @@ In this repository, I try to implement BigVGAN (specifically BigVGAN-base model)
 
 0. Download datasets
     1. Download the VCTK dataset
-'''sh
+```sh
 mkdir dataset
 cd dataset
 wget https://datashare.ed.ac.uk/bitstream/handle/10283/3443/VCTK-Corpus-0.92.zip
 unzip VCTK-Corpus-0.92.zip -d VCTK-Corpus
 cd ..
-'''
+```
     
 
 ## Training Exmaple
