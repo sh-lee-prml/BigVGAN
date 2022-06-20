@@ -22,38 +22,31 @@ def main():
     config = json.loads(data)
     hparams = utils.HParams(**config)
 
-    speakers = [os.path.basename(i) for i in glob.glob(os.path.join(args.input_path,'wav48/*'))]
+    speakers = [os.path.basename(i) for i in glob.glob(os.path.join(args.input_path,'txt/*'))]
+    speakers.remove('s5')
 
     for speaker in tqdm(speakers):
         os.makedirs(os.path.join(args.output_path,speaker,'train'),exist_ok=True)
         os.makedirs(os.path.join(args.output_path,speaker,'test'),exist_ok=True)
 
-        wavs = sorted(glob.glob(os.path.join(args.input_path,'wav48',speaker,'*.wav')))
+        wavs = sorted(glob.glob(os.path.join(args.input_path,'wav48_silence_trimmed',speaker,'*mic1.flac')))
         for wav in wavs[:25]:
             data = preprocess_wav(wav, hparams)
-            np.savez(os.path.join(args.output_path,speaker,'test',os.path.basename(wav).replace('.wav','.npz')),
+            np.savez(os.path.join(args.output_path,speaker,'test',os.path.basename(wav).replace('_mic1.flac','.npz')),
                     **data, allow_pickle=False)
         
         for wav in wavs[25:]:
             data = preprocess_wav(wav, hparams)
-            np.savez(os.path.join(args.output_path,speaker,'train',os.path.basename(wav).replace('.wav','.npz')),
+            np.savez(os.path.join(args.output_path,speaker,'train',os.path.basename(wav).replace('_mic1.flac','.npz')),
                     **data, allow_pickle=False)
 
-def downsample(audio, sr):
-    num = round(len(audio)*float(22050) / float(sr))
-    return sps.resample(audio, num)
 
 def preprocess_wav(wav, hparams):
-    audio, sr = utils.load_wav_to_torch(wav)
-    audio, _ = librosa.effects.trim(np.array(audio), 
-                                    top_db=hparams.data.top_db,
-                                    frame_length=hparams.data.filter_length,
-                                    hop_length=hparams.data.hop_length)
-
-    if sr != hparams.data.sampling_rate:
-        audio = downsample(audio, sr)
     
-    text_file = wav.replace('wav48','txt').replace('.wav','.txt')
+    audio, _ = librosa.load(wav, sr=22050)
+    audio = audio * hparams.data.max_wav_value
+    
+    text_file = wav.replace('wav48_silence_trimmed','txt').replace('_mic1.flac','.txt')
     with open(text_file, encoding='utf8') as f:
         text = f.readline().rstrip()
     token = text_to_sequence(text, ["english_cleaners2"]) 
