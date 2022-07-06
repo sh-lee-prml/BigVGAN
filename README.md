@@ -26,6 +26,46 @@ python preprocess.py
 python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 ```
 
+## 2022-07-06 (Issues in the rolloff of torchaudio resampling)
+Thanks to [@Yeongtae](https://github.com/Yeongtae), I found that there are something wrong in the cutoff function of low-pass filter.
+
+There are two problems in this function.
+1. The referecne sampling rate of Cutoff is an lower frequency value between origial sampling rate and resampled sampling rate
+2. I used wrong rolloff value of 0.25 --> I will change it soon (0.25 --> 0.5)
+ 
+<torchaudio and rolloff=0.25> 
+
+![generated_LJ001-0015_spec_org](https://user-images.githubusercontent.com/56749640/177582200-3f31f74a-c46f-46df-946f-3a2bcb65cb2f.png)
+![generated_LJ001-0015_spec_up_5_modified](https://user-images.githubusercontent.com/56749640/177582225-f3cb64fe-379c-4a6a-acbf-6b0b2f16c9c4.png)
+![generated_LJ001-0015_spec_filter_5_5_fre_22050](https://user-images.githubusercontent.com/56749640/177582247-8a218f91-01cf-4ff5-b9e8-ac343b6fc8cf.png)
+
+- (Left) 22,050
+- (Middle) Upsampling (44,100) -->Low-pass filter (rolloff=0.25, torchaudio)
+- (Right) Upsampling (44,100) -->Low-pass filter (rolloff=0.25, torchaudio) --> Downsampling (22,050) --> Low-pass filter (rolloff=0.25, torchaudio)
+
+<torchaudio and rolloff=0.5> 
+
+![generated_LJ001-0015_spec_org](https://user-images.githubusercontent.com/56749640/177580650-e7906af5-fb8b-442e-a437-9a25063ab3dc.png)
+![generated_LJ001-0015_spec_up_5_modified](https://user-images.githubusercontent.com/56749640/177580718-70181571-eccb-457f-9353-422e0fb624a8.png)
+![generated_LJ001-0015_spec_filter_5_5_fre_22050](https://user-images.githubusercontent.com/56749640/177580747-2fa3bdbb-4dd1-434c-8b12-fc73fb0cc0d0.png)
+
+- (Left) 22,050
+- (Middle) Upsampling (44,100) -->Low-pass filter (rolloff=0.5, torchaudio)
+- (Right) Upsampling (44,100) -->Low-pass filter (rolloff=0.5, torchaudio) --> Downsampling (22,050) --> Low-pass filter (rolloff=0.5, torchaudio)
+
+<Modified Resampling from torchaudio and rolloff=0.5> 
+
+![generated_LJ001-0015_spec_filter_5_5_fre_22050](https://user-images.githubusercontent.com/56749640/177584613-22a4de0d-23d8-48ab-a424-355ad3fdd394.png)
+![generated_LJ001-0015_spec_up_5_modified](https://user-images.githubusercontent.com/56749640/177584643-e30a198c-73cd-4896-806e-d576d516f438.png)
+![generated_LJ001-0015_spec_filter_5_5_fre_22050](https://user-images.githubusercontent.com/56749640/177584679-24885f19-d394-449a-8a9d-a267d04e60bf.png)
+
+- (Left) 22,050
+- (Middle) Upsampling (44,100) -->Low-pass filter (rolloff=0.5, modified torchaudio)
+- (Right) Upsampling (44,100) -->Low-pass filter (rolloff=0.5, modified torchaudio) --> Downsampling (22,050) --> Low-pass filter (rolloff=0.5, modified torchaudio)
+
+I will fix it tommorow. Please do not use this repository for a while... 
+
+
 ## 2022-06-13 (VITS with BigVGAN)
 - Build Monotonic Alignment Search first ([https://github.com/jaywalnut310/vits](https://github.com/jaywalnut310/vits))
 ```sh
