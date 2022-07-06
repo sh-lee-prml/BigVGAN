@@ -63,6 +63,16 @@ There are two problems in this function.
 - (Middle) Upsampling (44,100) -->Low-pass filter (rolloff=0.5, modified torchaudio)
 - (Right) Upsampling (44,100) -->Low-pass filter (rolloff=0.5, modified torchaudio) --> Downsampling (22,050) --> Low-pass filter (rolloff=0.5, modified torchaudio)
 
+<Upsampling with different rolloff values>
+    
+![generated_LJ001-0015_spec_up_5_modified](https://user-images.githubusercontent.com/56749640/177585980-78998924-90b2-4dff-873f-4d5afd6c073f.png)
+![generated_LJ001-0015_spec_up_5_modified](https://user-images.githubusercontent.com/56749640/177586130-293ce626-fd99-4692-b8a1-d3570cb52a07.png)
+![generated_LJ001-0015_spec_up_5_modified](https://user-images.githubusercontent.com/56749640/177586203-dadcfb05-a8fa-4dd5-a624-ca8be3ca1391.png)
+
+- (Left) Upsampling (44,100) -->Low-pass filter (rolloff=0.99, modified torchaudio) 
+- (Middle ✔)Upsampling (44,100) -->Low-pass filter (rolloff=0.5, modified torchaudio)
+- (Right) Upsampling (44,100) -->Low-pass filter (rolloff=0.25, modified torchaudio)
+    
 I will fix it tommorow. Please do not use this repository for a while... 
 
 
