@@ -35,7 +35,9 @@ There are two problems in this function.
  
 <torchaudio and rolloff=0.25> 
 
-![generated_LJ001-0015_spec_org](https://user-images.githubusercontent.com/56749640/177582200-3f31f74a-c46f-46df-946f-3a2bcb65cb2f.png){width=30%}![generated_LJ001-0015_spec_up_5_modified](https://user-images.githubusercontent.com/56749640/177582225-f3cb64fe-379c-4a6a-acbf-6b0b2f16c9c4.png){width=30%}![generated_LJ001-0015_spec_filter_5_5_fre_22050](https://user-images.githubusercontent.com/56749640/177582247-8a218f91-01cf-4ff5-b9e8-ac343b6fc8cf.png){width=30%}
+![generated_LJ001-0015_spec_org](https://user-images.githubusercontent.com/56749640/177582200-3f31f74a-c46f-46df-946f-3a2bcb65cb2f.png)
+![generated_LJ001-0015_spec_up_5_modified](https://user-images.githubusercontent.com/56749640/177582225-f3cb64fe-379c-4a6a-acbf-6b0b2f16c9c4.png)
+![generated_LJ001-0015_spec_filter_5_5_fre_22050](https://user-images.githubusercontent.com/56749640/177582247-8a218f91-01cf-4ff5-b9e8-ac343b6fc8cf.png)
 
 - (Left) 22,050
 - (Middle) Upsampling (44,100) -->Low-pass filter (rolloff=0.25, torchaudio)
