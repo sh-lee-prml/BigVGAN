@@ -73,7 +73,7 @@ There are two problems in this function.
 - ✔ (Middle)Upsampling (44,100) -->Low-pass filter (rolloff=0.5, modified torchaudio)
 - (Right) Upsampling (44,100) -->Low-pass filter (rolloff=0.25, modified torchaudio)
     
-I will update the source code of modified resampling tommorow. Please do not use this repository for a while... 
+I will update the source code of modified resampling tommorrow. Please do not use this repository for a while... 
 
 
 ## 2022-06-13 (VITS with BigVGAN)
