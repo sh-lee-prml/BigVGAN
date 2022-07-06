@@ -70,7 +70,7 @@ There are two problems in this function.
 ![generated_LJ001-0015_spec_up_5_modified](https://user-images.githubusercontent.com/56749640/177586203-dadcfb05-a8fa-4dd5-a624-ca8be3ca1391.png)
 
 - (Left) Upsampling (44,100) -->Low-pass filter (rolloff=0.99, modified torchaudio) 
-- (Middle ✔)Upsampling (44,100) -->Low-pass filter (rolloff=0.5, modified torchaudio)
+- ✔ (Middle)Upsampling (44,100) -->Low-pass filter (rolloff=0.5, modified torchaudio)
 - (Right) Upsampling (44,100) -->Low-pass filter (rolloff=0.25, modified torchaudio)
     
 I will fix it tommorow. Please do not use this repository for a while... 
