@@ -30,7 +30,7 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 Thanks to [@Yeongtae](https://github.com/Yeongtae), I found that there are something wrong in the cutoff function of low-pass filter.
 
 There are two problems in this function.
-1. The referecne sampling rate of Cutoff is an lower frequency value between origial sampling rate and resampled sampling rate
+1. The reference sampling rate of Cutoff is an lower frequency value between origial sampling rate and resampled sampling rate
 2. I used wrong rolloff value of 0.25 --> I will change it soon (0.25 --> 0.5)
  
 ### torchaudio resampling with rolloff=0.25
