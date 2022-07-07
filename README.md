@@ -39,7 +39,7 @@ python preprocess.py
 python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 ```
 
-## 2022-07-07 Update(use torchaudio.resample with rolloff = 0.5)
+## 2022-07-07 Update (use torchaudio.resample with rolloff = 0.5)
 
 After some discussion, I only change the rolloff value (0.25 --> 0.5) and use torchaudio without modification.
 
