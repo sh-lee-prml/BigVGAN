@@ -43,7 +43,7 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 
 After some discussion, I only change the rolloff value (0.25 --> 0.5) and use torchaudio without modification.
 
-During Transposed convolution for upsampling, aliasing may occur so this may reduced by a low-pass filter.
+After Transposed convolution for upsampling, aliasing may occur so this may reduced by a low-pass filter.
 
 At first, I misunderstand the frequency information of input feature in AMP block should be maintained after up/down sampling so I tried to modify resampling code to maintain the frequency information under original frequency. But this feature is also upsampled by transposed convolution and aliasing may occuer in this process. 
 
