@@ -252,13 +252,13 @@ class AMPBlock(torch.nn.Module):
         self.upsampling_with_lfilter = T.Resample(orig_freq=orig_freq, new_freq=orig_freq*2,
                                                   resampling_method='kaiser_window',
                                                   lowpass_filter_width=12,
-                                                  rolloff=0.25,
+                                                  rolloff=0.5,
                                                   beta=4.663800127934911
                                                   )
         self.downsampling_with_lfilter = T.Resample(orig_freq=orig_freq*2, new_freq=orig_freq,
                                                   resampling_method='kaiser_window',
                                                     lowpass_filter_width=12,
-                                                  rolloff=0.25,
+                                                  rolloff=0.5,
                                                   beta=4.663800127934911
                                                   )
         self.convs1 = nn.ModuleList([
