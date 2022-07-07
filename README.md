@@ -46,7 +46,7 @@ After some discussion, I only change the rolloff value (0.25 --> 0.5) and use to
 During Transposed convolution for upsampling, aliasing may occur so this may reduced by a low-pass filter.
 
 At first, I misunderstand the frequency information of input feature in AMP block should be maintained after up/down sampling. 
-But this feature is also upsampled by transposed convolution. Hence, I only change the rolloff value (0.25 --> 0.5) 
+But this feature is also upsampled by transposed convolution. Hence, I only change the rolloff value (0.25 --> 0.5) for anti-aliasing 
 
 ## 2022-07-06 (Issues in the rolloff of torchaudio resampling)
 Thanks to [@Yeongtae](https://github.com/Yeongtae), I found that there are something wrong in the cutoff function of low-pass filter.
