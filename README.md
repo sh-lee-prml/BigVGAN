@@ -4,6 +4,19 @@
 
 In this repository, I try to implement BigVGAN (specifically BigVGAN-base model) [[Paper]](https://arxiv.org/pdf/2206.04658.pdf) [[Demo]](https://bigvgan-demo.github.io/).
 
+## BigVGAN vs HiFi-GAN 
+
+1. Leaky Relu --> x + (1/a)*sin^2(ax)
+
+2. MRF --> AMP block 
+- Up --> Low-pass filter --> Snake1D --> Down --> Low-pass filter
+
+3. MSD --> MRD (Univnet discriminator) [UnivNet unofficial github](https://github.com/mindslab-ai/univnet/blob/9bb2b54838bb6d7ce767131cc7b8b61198bc7558/model/mrd.py#L49)
+
+4. max_fre 8000 --> 12,000 for universal vocoder (sr: 24,000)
+- We use the sampling rate of 22,050 and linear spectrogram for input speech.
+
+
 ## Pre-requisites
 0. Pytorch >=3.9 and torchaudio >= 0.9
 
@@ -25,6 +38,15 @@ python preprocess.py
 
 python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 ```
+
+## 2022-07-07 (use torchaudio.resample with rolloff = 0.5)
+
+After some discussion, I only change the rolloff value (0.25 --> 0.5) and use torchaudio without modification.
+
+During Transposed convolution for upsampling, aliasing may occur so this may reduced by a low-pass filter.
+
+At first, I misunderstand the frequency information of input feature in AMP block should be maintained after up/down sampling. 
+But this feature is also upsampled by transposed convolution. Hence, I only change the rolloff value (0.25 --> 0.5) 
 
 ## 2022-07-06 (Issues in the rolloff of torchaudio resampling)
 Thanks to [@Yeongtae](https://github.com/Yeongtae), I found that there are something wrong in the cutoff function of low-pass filter.
@@ -62,7 +84,7 @@ There are two problems in this function.
 ![image](https://user-images.githubusercontent.com/56749640/177588287-ff7ce561-74ad-4018-a8df-a4593573b215.png)
 
 - (Left) Upsampling (44,100) -->Low-pass filter (rolloff=0.99, modified torchaudio) 
-- ✔ (Middle)Upsampling (44,100) -->Low-pass filter (rolloff=0.5, modified torchaudio)
+- (Middle)Upsampling (44,100) -->Low-pass filter (rolloff=0.5, modified torchaudio)
 - (Right) Upsampling (44,100) -->Low-pass filter (rolloff=0.25, modified torchaudio)
     
 I will update the source code of modified resampling tommorrow. Please do not use this repository for a while... 
@@ -79,18 +101,6 @@ python train_vits_with_bigvgan.py -c configs/vctk_bigvgan_vits.json  -m vits_wit
 
 ## 2022-06-12
 - Current ver has some redundant parts in some modules (e.g., data_utils have some TTS module. Ignore it plz)
-
-## BigVGAN vs HiFi-GAN 
-
-1. Leaky Relu --> x + (1/a)*sin^2(ax)
-
-2. MRF --> AMP block 
-- Up --> Low-pass filter --> Snake1D --> Down --> Low-pass filter
-
-3. MSD --> MRD (Univnet discriminator) [UnivNet unofficial github](https://github.com/mindslab-ai/univnet/blob/9bb2b54838bb6d7ce767131cc7b8b61198bc7558/model/mrd.py#L49)
-
-4. max_fre 8000 --> 12,000 for universal vocoder (sr: 24,000)
-- We use the sampling rate of 22,050 and linear spectrogram for input speech.
 
 ## Low-pass filter
 - [ ] pytorch extension ver with scipy??? [StarGAN3](https://github.com/NVlabs/stylegan3/blob/b1a62b91b18824cf58b533f75f660b073799595d/training/networks_stylegan3.py)
