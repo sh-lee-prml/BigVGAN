@@ -48,8 +48,8 @@ class AMPBlock(torch.nn.Module):
         ])
         self.convs2.apply(init_weights)
 
-        self.alpha1 = [nn.Parameter(torch.ones(1, channels, 1).to(rank)) for i in range(len(self.convs1))]
-        self.alpha2 = [nn.Parameter(torch.ones(1, channels, 1).to(rank)) for i in range(len(self.convs2))]
+        self.alpha1 = nn.ParameterList([nn.Parameter(torch.ones(1, channels, 1)) for i in range(len(self.convs1))])
+        self.alpha2 = nn.ParameterList([nn.Parameter(torch.ones(1, channels, 1)) for i in range(len(self.convs2))])
 
     def forward(self, x, x_mask=None):
         for c1, c2, a1, a2 in zip(self.convs1, self.convs2, self.alpha1, self.alpha2):
@@ -97,15 +97,15 @@ class Generator(torch.nn.Module):
                                 k, u, padding=(k-u)//2)))
 
         self.resblocks = nn.ModuleList()
-        self.alphas = []
+        self.alphas = nn.ParameterList()
 
-        self.alphas.append(nn.Parameter(torch.ones(1, upsample_initial_channel, 1)).to(rank))
+        self.alphas.append(nn.Parameter(torch.ones(1, upsample_initial_channel, 1)))
 
         initial_freq = [690, 5513, 11025, 22050]
 
         for i in range(len(self.ups)):
             ch = upsample_initial_channel//(2**(i+1))
-            self.alphas.append(nn.Parameter(torch.ones(1, ch, 1)).to(rank))
+            self.alphas.append(nn.Parameter(torch.ones(1, ch, 1)))
 
             for j, (k, d) in enumerate(zip(resblock_kernel_sizes, resblock_dilation_sizes)):
                 self.resblocks.append(resblock(ch, k, d, rank, initial_freq[i]))
