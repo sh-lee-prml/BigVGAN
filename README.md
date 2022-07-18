@@ -39,6 +39,14 @@ python preprocess.py
 python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 ```
 
+## 2022-07-18 Update (fix alpha value to be trainable)
+
+Thanks to [@PiotrDabkowski](https://github.com/PiotrDabkowski), I have noticed that alpha is not trained.
+
+I fix it by changing list to torch.nn.ParameterList
+
+Please see this issue (https://github.com/sh-lee-prml/BigVGAN/issues/10)
+
 ## 2022-07-07 Update (use torchaudio.resample with rolloff = 0.5)
 
 After some discussion, I only change the rolloff value (0.25 --> 0.5) and use torchaudio without modification.
