@@ -295,11 +295,12 @@ class AMPBlock(torch.nn.Module):
             if x_mask is not None:
                 xt = xt * x_mask
             xt = c1(xt)
-
-            with autocast(enabled=False):
-                xt = self.upsampling_with_lfilter(xt.float())
-                xt = xt + (1 / a2) * (torch.sin(a2 * xt) ** 2)  # Snake1D
-                xt = self.downsampling_with_lfilter(xt)
+            xt = xt + (1 / a2) * (torch.sin(a2 * xt) ** 2)  # Snake1D
+            
+#             with autocast(enabled=False):
+#                 xt = self.upsampling_with_lfilter(xt.float())
+#                 xt = xt + (1 / a2) * (torch.sin(a2 * xt) ** 2)  # Snake1D
+#                 xt = self.downsampling_with_lfilter(xt)
 
             if x_mask is not None:
                 xt = xt * x_mask
