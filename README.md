@@ -39,6 +39,23 @@ python preprocess.py
 python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 ```
 
+## 2022-10-10 Question for initialization for snake
+[Original Snake1D paper](https://proceedings.neurips.cc/paper/2020/file/1160453108d3e537255e9f7b931f4e90-Paper.pdf) states that it is important to initialize a proper value for alpha. I just set it to 1. The official source code is as below:
+```
+# official snake function (https://github.com/AdenosHermes/NeurIPS_2020_Snake/blob/main/Snake_Atmospheric_Temperature.ipynb)
+class Snake(nn.Module):#learnable a
+  def __init__(self):
+      super(Snake, self).__init__()
+      self.a = nn.Parameter()
+      self.first = True
+  def forward(self, x):
+    if self.first:
+        self.first = False
+        a = torch.zeros_like(x[0]).normal_(mean=0,std=50).abs()
+        self.a = nn.Parameter(a)
+    return (x + (torch.sin(self.a * x) ** 2) / self.a)
+```
+
 ## 2022-07-18 Update (fix alpha value to be trainable)
 
 Thanks to [@PiotrDabkowski](https://github.com/PiotrDabkowski), I have noticed that alpha is not trained.
