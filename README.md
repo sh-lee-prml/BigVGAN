@@ -39,7 +39,7 @@ python preprocess.py
 python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 ```
 
-## 2022-10-10 Question for initialization for snake
+## 2022-10-10 Question for an initialization method of Snake1D activation 
 [Original Snake1D paper](https://proceedings.neurips.cc/paper/2020/file/1160453108d3e537255e9f7b931f4e90-Paper.pdf) states that it is important to initialize a proper value for alpha. For BigVGAN, I just wonder which value and initialization method BigVGAN used. I just set it to 1. The official source code is as below:
 ```
 # official snake function (https://github.com/AdenosHermes/NeurIPS_2020_Snake/blob/main/Snake_Atmospheric_Temperature.ipynb)
