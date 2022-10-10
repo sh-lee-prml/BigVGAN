@@ -55,7 +55,7 @@ class Snake(nn.Module):#learnable a
         self.a = nn.Parameter(a)
     return (x + (torch.sin(self.a * x) ** 2) / self.a)
 ```
-2. I will change the alpha parameter with initialozation soon
+2. I will change the alpha parameter with initialization soon
 ## 2022-07-18 Update (fix alpha value to be trainable)
 
 Thanks to [@PiotrDabkowski](https://github.com/PiotrDabkowski), I have noticed that alpha is not trained.
