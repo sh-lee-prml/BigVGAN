@@ -40,7 +40,7 @@ python train_bigvgan_vocoder.py -c configs/vctk_bigvgan.json -m bigvgan
 ```
 
 ## 2022-10-10 Question for an initialization method of Snake1D activation 
-[Original Snake1D paper](https://proceedings.neurips.cc/paper/2020/file/1160453108d3e537255e9f7b931f4e90-Paper.pdf) states that it is important to initialize a proper value for alpha. For BigVGAN, I just wonder which value and initialization method BigVGAN used. I just set it to 1. The official source code of Snake1D is as below:
+1. [Original Snake1D paper](https://proceedings.neurips.cc/paper/2020/file/1160453108d3e537255e9f7b931f4e90-Paper.pdf) states that it is important to initialize a proper value for alpha. For BigVGAN, I just wonder which value and initialization method BigVGAN used. I just set it to 1. The official source code of Snake1D is as below:
 ```
 # official snake function (https://github.com/AdenosHermes/NeurIPS_2020_Snake/blob/main/Snake_Atmospheric_Temperature.ipynb)
 class Snake(nn.Module):#learnable a
@@ -55,7 +55,7 @@ class Snake(nn.Module):#learnable a
         self.a = nn.Parameter(a)
     return (x + (torch.sin(self.a * x) ** 2) / self.a)
 ```
-
+2. I will change the alpha parameter with initialozation soon
 ## 2022-07-18 Update (fix alpha value to be trainable)
 
 Thanks to [@PiotrDabkowski](https://github.com/PiotrDabkowski), I have noticed that alpha is not trained.
