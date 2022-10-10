@@ -56,6 +56,8 @@ class Snake(nn.Module):#learnable a
     return (x + (torch.sin(self.a * x) ** 2) / self.a)
 ```
 2. I will change the alpha parameter with initialization soon
+3. I tested some values for initialization. std=0.5 is better than others (1, 5, and 50). However, because I just trained the model for 50,000 steps, I'm not sure it is optimal value for neural vocoder.
+ 
 ## 2022-07-18 Update (fix alpha value to be trainable)
 
 Thanks to [@PiotrDabkowski](https://github.com/PiotrDabkowski), I have noticed that alpha is not trained.
