@@ -4,8 +4,7 @@
 
 In this repository, I try to implement BigVGAN (specifically BigVGAN-base model) [[Paper]](https://arxiv.org/pdf/2206.04658.pdf) [[Demo]](https://bigvgan-demo.github.io/).
 
-## 2023-02-18: The official implementation of BigVGAN is released [[Link]] (https://github.com/NVIDIA/BigVGAN) 😊
-
+## 2023-02-18: The official implementation of BigVGAN is released [[Link]](https://github.com/NVIDIA/BigVGAN) 😊
 
 ## BigVGAN vs HiFi-GAN 
 
